@@ -15,10 +15,10 @@ let Toast = require("nativescript-toast");
 @Component({
   selector: "category-list",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  //templateUrl: "pages/category-list/category-list.xml",
-  //styleUrls: ["pages/category-list/category-list.css"]
-  templateUrl: "./category-list.xml",
-  styleUrls: ["./category-list.css"]
+  templateUrl: "pages/category-list/category-list.xml",
+  styleUrls: ["pages/category-list/category-list.css"]
+  //templateUrl: "./category-list.xml",
+  //styleUrls: ["./category-list.css"]
 })
 export class CategoryListComponent extends ActionBarComponent {
   

@@ -4,8 +4,8 @@ import { ModalDialogParams } from "nativescript-angular/modal-dialog";
 import { ListPicker } from "ui/list-picker";
 
 @Component({
-    //templateUrl: "components/listpicker-modalview/listpicker-modalview.xml"
-    templateUrl: "./listpicker-modalview.xml"
+    templateUrl: "components/listpicker-modalview/listpicker-modalview.xml"
+    //templateUrl: "./listpicker-modalview.xml"
 })
 export class ListPickerModalViewComponent implements OnInit {
     

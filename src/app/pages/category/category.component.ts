@@ -14,8 +14,8 @@ let Dialogs = require("ui/dialogs");
 
 @Component({
     selector: "options",
-    //templateUrl: "pages/category/category.xml"
-    templateUrl: "./category.xml"
+    templateUrl: "pages/category/category.xml"
+    //templateUrl: "./category.xml"
 })
 export class CategoryComponent implements OnInit, AfterViewInit, OnDestroy {
     

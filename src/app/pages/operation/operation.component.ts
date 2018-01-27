@@ -20,8 +20,8 @@ var Moment = require("moment");
 
 @Component({
     selector: "options",
-    //templateUrl: "pages/operation/operation.xml"
-    templateUrl: "./operation.xml"
+    templateUrl: "pages/operation/operation.xml"
+    //templateUrl: "./operation.xml"
 })
 export class OperationComponent implements OnInit, OnDestroy {
     

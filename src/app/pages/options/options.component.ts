@@ -13,10 +13,10 @@ let Dialogs = require("ui/dialogs");
 
 @Component({    
     selector: "options",
-    //templateUrl: "pages/options/options.xml",
-    //styleUrls: ["pages/options/options.css"]
-    templateUrl: "./options.xml",
-    styleUrls: ["./options.css"]
+    templateUrl: "pages/options/options.xml",
+    styleUrls: ["pages/options/options.css"]
+    //templateUrl: "./options.xml",
+    //styleUrls: ["./options.css"]
 })
 export class OptionsComponent implements OnInit {
     

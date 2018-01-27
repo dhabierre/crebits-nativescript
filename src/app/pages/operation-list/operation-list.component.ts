@@ -18,10 +18,10 @@ let Toast = require("nativescript-toast");
 @Component({
   selector: "operation-list",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  //templateUrl: "pages/operation-list/operation-list.xml",
-  //styleUrls: ["pages/operation-list/operation-list.css"]
-  templateUrl: "./operation-list.xml",
-  styleUrls: ["./operation-list.css"]
+  templateUrl: "pages/operation-list/operation-list.xml",
+  styleUrls: ["pages/operation-list/operation-list.css"]
+  //templateUrl: "./operation-list.xml",
+  //styleUrls: ["./operation-list.css"]
 })
 export class OperationListComponent extends ActionBarComponent {
   

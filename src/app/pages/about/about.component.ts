@@ -10,8 +10,8 @@ let UtilityModule = require("utils/utils");
 
 @Component({
   selector: "about",
-  //templateUrl: "pages/about/about.xml"
-  templateUrl: "./about.xml"
+  templateUrl: "pages/about/about.xml"
+  //templateUrl: "./about.xml"
 })
 export class AboutComponent implements OnInit {
   

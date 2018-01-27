@@ -8,8 +8,8 @@ import { TranslationService } from "./shared/services/translation.service";
 
 @Component({
     selector: "main",
-    //templateUrl: "app.component.xml"
-    templateUrl: "./app.component.xml"
+    templateUrl: "app.component.xml"
+    //templateUrl: "./app.component.xml"
 })
 export class AppComponent implements OnInit { 
     

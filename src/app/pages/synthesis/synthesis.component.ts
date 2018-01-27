@@ -11,10 +11,10 @@ import { SynthesisDataService } from "../../shared/services/data/synthesis.data.
 @Component({
   selector: "synthesis",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  //templateUrl: "pages/synthesis/synthesis.xml",
-  //styleUrls: ["pages/synthesis/synthesis.css"]
-  templateUrl: "./synthesis.xml",
-  styleUrls: ["./synthesis.css"]
+  templateUrl: "pages/synthesis/synthesis.xml",
+  styleUrls: ["pages/synthesis/synthesis.css"]
+  //templateUrl: "./synthesis.xml",
+  //styleUrls: ["./synthesis.css"]
 })
 export class SynthesisComponent extends ActionBarComponent implements OnInit {
 

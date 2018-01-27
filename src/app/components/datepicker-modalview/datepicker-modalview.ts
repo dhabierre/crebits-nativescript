@@ -4,8 +4,8 @@ import { ModalDialogParams } from "nativescript-angular/modal-dialog";
 import { DatePicker } from "ui/date-picker";
 
 @Component({
-    //templateUrl: "components/datepicker-modalview/datepicker-modalview.xml"
-    templateUrl: "./datepicker-modalview.xml"
+    templateUrl: "components/datepicker-modalview/datepicker-modalview.xml"
+    //templateUrl: "./datepicker-modalview.xml"
 })
 export class DatePickerModalViewComponent implements OnInit {
     
