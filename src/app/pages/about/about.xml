@@ -1,0 +1,45 @@
+<Page class="container">
+  <ActionBar [title]="'Page.About.Title' | translate">
+  <ActionItem (tap)="back()" android.systemIcon="ic_menu_back"></ActionItem></ActionBar>
+  <ScrollView scrollBarIndicatorVisible="false" class="logo-bg">
+    <StackLayout class="static-list">
+      <!-- Version -->
+      <StackLayout class="item">
+        <Label text="Version" class="item-title"></Label>
+        <Label class="item-caption">
+          <FormattedString>
+            <Span text="Crebits"></Span>
+            <Span text=" "></Span>
+            <Span [text]="version"></Span>
+          </FormattedString>
+        </Label>
+        <Label text="Copyright (c) 2018" class="item-caption"></Label>
+      </StackLayout>
+      <!-- Developer -->
+      <StackLayout class="item">
+        <Label [text]="'Page.About.Developed.Title' | translate" class="item-title"></Label>
+        <Label text="Delphin Habierre" class="item-caption"></Label>
+      </StackLayout>
+      <!-- Designer -->
+      <StackLayout class="item">
+        <Label [text]="'Page.About.Themed.Title' | translate" class="item-title"></Label>
+        <Label text="Linda Gomez" class="item-caption"></Label>
+      </StackLayout>
+      <!-- Informations -->
+      <StackLayout class="item">
+        <Label [text]="'Page.About.Information.Title' | translate" class="item-title"></Label>
+        <Label [text]="'Page.About.Information.Caption' | translate" textWrap="true" class="item-caption"></Label>
+      </StackLayout>
+      <!-- Donation -->
+      <StackLayout class="item" (tap)="openPaypal()">
+        <Label [text]="'Page.About.Donation.Title' | translate" class="item-title"></Label>
+        <Label [text]="'Page.About.Donation.Caption' | translate" textWrap="true" class="item-caption"></Label>
+      </StackLayout>
+      <!-- Feedback -->
+      <StackLayout (tap)="openFeedback()">
+        <Label [text]="'Page.About.Feedback.Title' | translate" class="item-title"></Label>
+        <Label [text]="'Feedback.To' | translate" class="item-caption"></Label>
+      </StackLayout>
+    </StackLayout>
+  </ScrollView>
+</Page>

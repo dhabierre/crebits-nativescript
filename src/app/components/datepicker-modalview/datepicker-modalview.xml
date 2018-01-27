@@ -1,0 +1,9 @@
+<GridLayout rows="auto, auto, auto, *, 78" class="modal-view-style">
+    <Label row="0" [text]="title" textWrap="true" class="title"></Label>
+    <Label row="1" [text]="message" textWrap="true" class="message"></Label>
+    <DatePicker row="1" id="innerPicker" class="inner"></DatePicker>
+    <GridLayout row="4" columns="*, *">
+        <Button col="0" [text]="'mdi-clear' | fonticon" (tap)="cancel()" class="mdi btn btn-cancel"></Button>
+        <Button col="1" [text]="'mdi-done' | fonticon" (tap)="submit()" class="mdi btn btn-submit"></Button>
+    </GridLayout>
+</GridLayout>

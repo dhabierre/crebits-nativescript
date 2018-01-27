@@ -1,0 +1,23 @@
+.value {
+    font-size: 36px;
+}
+.caption {
+    font-size: 18px;
+}
+.category-caption {
+    margin-bottom: 10;
+}
+.category-caption,
+.category-total {
+    font-size: 18px;
+}
+.category-percent {
+    font-size: 18px;
+    color: gray;
+}
+.fab-button {
+    margin: 30;
+}
+.cash-limit {
+    background-color: #3F0000;
+}

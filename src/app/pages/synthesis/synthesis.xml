@@ -1,0 +1,102 @@
+<Page
+  xmlns="http://schemas.nativescript.org/tns.xsd"
+  xmlns:actionbaritems="components/actionbaritems"
+  xmlns:fab="nativescript-floatingactionbutton"
+  [class]="isCashLimit ? 'cash-limit' : ''">
+  <ActionBar [title]="'Page.Synthesis.Title' | translate">
+    <ActionItem [text]="'ActionBar.Purge' | translate" (tap)="purge()" android.position="popup"></ActionItem>
+    <ActionItem [text]="'ActionBar.Export' | translate" (tap)="export()" android.position="popup"></ActionItem>
+    <ActionItem [text]="'ActionBar.Categories' | translate" (tap)="navigateToCategories()" android.position="popup"></ActionItem>
+    <ActionItem [text]="'Page.Options.Title' | translate" (tap)="navigateToOptions()" android.position="popup"></ActionItem>
+    <ActionItem [text]="'Page.About.Title' | translate" (tap)="navigateToAbout()" android.position="popup"></ActionItem>
+  </ActionBar>
+  <GridLayout rows="*, 60">
+    <TabView row="0" tabTextColor="gray" selectedTabTextColor="black" androidSelectedTabHighlightColor="green">
+      <!-- Global -->
+      <GridLayout *tabItem="{title: 'Page.Synthesis.Global' | translate}" class="container">
+        <ScrollView scrollBarIndicatorVisible="false">
+          <GridLayout columns="*" rows="auto, auto, auto, *">
+            <!-- Credits -->
+            <GridLayout row="0" columns="*, *" rows="auto, auto">
+              <Label row="0" col="0" [text]="'Common.Credits' | translate" class="caption"></Label>
+              <Label row="1" col="0" [text]="synthesis.credits | currencyWithoutSymbol" class="credit value"></Label>
+              <GridLayout columns="*, auto, auto" rows="auto, auto" row="1" col="1">
+                <Label row="0" col="0" [text]="synthesis.recurrentCredit | currencyWithoutSymbol" class="credit text-right"></Label>
+                <Label row="0" col="1" [text]="'mdi-autorenew' | fonticon" class="mdi" style="margin-top: 12px; margin-left: 12px"></Label>
+                <Label row="1" col="0" [text]="synthesis.notRecurrentCredit | currencyWithoutSymbol" class="credit text-right"></Label>
+              </GridLayout>
+            </GridLayout>
+            <!-- Debits -->
+            <GridLayout row="1" columns="*, *" rows="auto, auto" style="margin-top: 100px">
+              <Label row="0" col="0" [text]="'Common.Debits' | translate" class="caption"></Label>
+              <Label row="1" col="0" [text]="synthesis.debits | currencyWithoutSymbol" class="debit value"></Label>
+              <GridLayout columns="*, auto, auto" rows="auto, auto" row="1" col="1">
+                <Label row="0" col="0" [text]="synthesis.recurrentDebit | currencyWithoutSymbol" class="debit text-right"></Label>
+                <Label row="0" col="1" [text]="'mdi-autorenew' | fonticon" class="mdi" style="margin-top: 12px; margin-left: 12px"></Label>
+                <Label row="1" col="0" [text]="synthesis.notRecurrentDebit | currencyWithoutSymbol" class="debit text-right"></Label>
+              </GridLayout>
+            </GridLayout>
+            <!-- Cash -->
+            <GridLayout row="2" columns="*, *" rows="auto, auto" style="margin-top: 100px">
+              <Label row="0" col="0" [text]="'Common.Cash' | translate" class="caption"></Label>
+              <Label row="1" col="0" [text]="synthesis.cash | currencyWithoutSymbol" class="value"></Label>
+              <GridLayout columns="*, auto, auto" rows="auto, auto" row="1" col="1">
+                <Label row="0" col="0" class="text-right">
+                  <FormattedString>
+                    <Span [text]="synthesis.cashPercent"></Span>
+                    <Span text="%"></Span>
+                  </FormattedString>
+                </Label>
+                <Label row="0" col="1" class="mdi" [text]="'mdi-autorenew' | fonticon" style="margin-top: 12px; margin-left: 12px" visibility="hidden"></Label>
+              </GridLayout>
+            </GridLayout>
+          </GridLayout>
+        </ScrollView>
+      </GridLayout>
+      <!-- Categories -->
+      <GridLayout *tabItem="{title: 'Page.Synthesis.Categories' | translate}" class="container">
+        <Label [text]="'Common.NoData' | translate" [visibility]="synthesis.categories.length === 0 ? 'visible' : 'collapse'"></Label>
+        <GridLayout rows="48, *" [visibility]="synthesis.categories.length > 0 ? 'visible' : 'collapse'">
+          <!-- Recurrent -->
+          <GridLayout row="0" columns="*, auto, 64">
+            <Label col="0" class="category-caption">
+              <FormattedString>
+                <Span [text]="synthesis.recurrent.caption"></Span>
+                <Span text=" "></Span>
+                <Span [text]="'mdi-autorenew' | fonticon" class="mdi"></Span>
+              </FormattedString>
+            </Label>
+            <Label col="1" [text]="synthesis.recurrent.total | currencyWithoutSymbol" class="category-total text-right"></Label>
+            <Label col="2" class="category-percent text-right">
+              <FormattedString>
+                <Span [text]="synthesis.recurrent.percent"></Span>
+                <Span text="%"></Span>
+              </FormattedString>
+            </Label>
+          </GridLayout>
+          <!-- Categories -->
+          <ScrollView row="1" scrollBarIndicatorVisible="false">
+            <ListView [items]="synthesis.categories" separatorColor="transparent">
+              <ng-template let-item="item">
+                <GridLayout columns="*, auto, 64">
+                  <Label col="0" [text]="item.caption" class="category-caption"></Label>
+                  <Label col="1" [text]="item.total | currencyWithoutSymbol" class="category-total text-right"></Label>
+                  <Label col="2" class="category-percent text-right">
+                    <FormattedString>
+                      <Span [text]="item.percent"></Span>
+                      <Span text="%"></Span>
+                    </FormattedString>
+                  </Label>
+                </GridLayout>
+              </ng-template>
+            </ListView>
+          </ScrollView>
+        </GridLayout>
+      </GridLayout>
+    </TabView>
+    <!-- Buttons -->
+    <Button row="1" [text]="'mdi-menu' | fonticon" [visibility]="isPressed ? 'collapse' : 'visible'" (tap)="navigateToOperations()" class="mdi"></Button>
+    <Button row="1" [text]="'mdi-more-horiz' | fonticon" [visibility]="isPressed ? 'visible' : 'collapse'" class="mdi highlighted"></Button>
+    <fab:fab row="1" (tap)="navigateToCreateOperation()" icon="res://ic_add_white_24dp" rippleColor="#f1f1f1" class="fab-button" />
+  </GridLayout>
+</Page>

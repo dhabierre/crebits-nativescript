@@ -1,0 +1,58 @@
+<Page class="container">
+  <ActionBar [title]="'Page.Operation.Title' | translate">
+    <ActionItem (tap)="persist()" android.systemIcon="ic_menu_save" ios.systemIcon="3" ios.position="right"></ActionItem>
+    <ActionItem (tap)="cancel()" android.systemIcon="ic_menu_close_clear_cancel" ios.systemIcon="1" ios.position="right"></ActionItem>
+  </ActionBar>
+  <ScrollView scrollBarIndicatorVisible="false">
+    <StackLayout class="form">
+      <!-- Credit / Debit Switch -->
+      <StackLayout class="form-field">
+        <GridLayout columns="*, auto">
+          <Label col="0" [text]="'Common.Debit' | translate" [visibility]="operation.isDebit ? 'visible' : 'collapse'" class="debit"></Label>
+          <Label col="0" [text]="'Common.Credit' | translate" [visibility]="operation.isCredit ? 'visible' : 'collapse'" class="credit"></Label>
+          <Switch col="1" [checked]="operation.isDebit" (checkedChange)="onIsDebitChange($event)" [visibility]="operation.id === 0 ? 'visible' : 'collapse'"></Switch>
+        </GridLayout>
+      </StackLayout>
+      <!-- Recurrent Switch -->
+      <StackLayout class="form-field">
+        <GridLayout columns="*, auto">
+          <Label col="0" [text]="'Common.Recurrent' | translate"></Label>
+          <Switch col="1" [checked]="operation.isRecurrent" (checkedChange)="onIsRecurrentChange($event)"></Switch>
+        </GridLayout>
+      </StackLayout>
+      <!-- Disabled Switch -->
+      <StackLayout class="form-field">
+        <GridLayout columns="*, auto">
+          <Label col="0" [text]="'Common.Disabled' | translate"></Label>
+          <Switch col="1" [checked]="operation.isDisabled" (checkedChange)="onIsDisabledChange($event)"></Switch>
+        </GridLayout>
+      </StackLayout>
+      <!-- Caption -->
+      <StackLayout class="form-field">
+        <TextField [hint]="'Common.Caption' | translate" autocorrect="true" [(ngModel)]="operation.caption" maxLength="24" style.placeholderColor="gray"></TextField>
+      </StackLayout>
+      <!-- Value -->
+      <StackLayout class="form-field">
+        <TextField [hint]="'Common.Value' | translate" [(ngModel)]="operation.value" keyboardType="number" style.placeholderColor="gray"></TextField>
+      </StackLayout>
+      <!-- OverridedValue -->
+      <StackLayout class="form-field" [visibility]="operation.id > 0 && operation.isRecurrent ? 'visible' : 'collapse'">
+        <TextField [hint]="'Common.OverridedValue' | translate: {month: currentMonth}" [(ngModel)]="operation.overridedValue" keyboardType="number" style.placeholderColor="gray"></TextField>
+      </StackLayout>
+      <!-- Categories -->
+      <StackLayout class="form-field" [visibility]="operation.isDebit && categories.length > 1 ? 'visible' : 'collapse'">
+        <GridLayout columns="*, auto">
+          <Label col="0" [text]='selectedCategory.caption' (tap)="selectCategory()" textWrap="true" style="margin-top: 16"></Label>
+          <Button col="1" [text]="'mdi-edit' | fonticon" class="mdi btn-action" (tap)="selectCategory()"></Button>
+        </GridLayout>
+      </StackLayout>
+      <!-- When -->
+      <StackLayout class="form-field" [visibility]="operation.isRecurrent ? 'collapse' : 'visible'">
+        <GridLayout columns="*, auto">
+          <Label col="0" [text]='operation.when | date: "dd MMMM yyyy"' (tap)="selectWhen()" textWrap="true" style="margin-top: 16"></Label>
+          <Button col="1" [text]="'mdi-edit' | fonticon" class="mdi btn-action" (tap)="selectWhen()"></Button>
+        </GridLayout>
+      </StackLayout>
+    </StackLayout>
+  </ScrollView>
+</Page>

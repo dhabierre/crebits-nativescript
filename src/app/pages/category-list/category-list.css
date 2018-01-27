@@ -1,0 +1,11 @@
+Button {
+    background-color: transparent;
+    border-color: transparent;
+    border-width: 1;
+    color: white;
+    width: 60;
+    font-size: 22;
+}
+.value {
+    font-size: 34px;
+}

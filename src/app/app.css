@@ -1,0 +1,120 @@
+@import url("~/platform.css");
+@import '~/nativescript-theme-core/css/core.dark.css';
+
+Page {
+    font-size: 17;
+    background-color: #001733;
+}
+Label,
+Span,
+TextField,
+CheckBox {
+    color: white;
+}
+ListPicker,
+DatePicker {
+    background-color: transparent;
+}
+Dialog {
+    color: black;
+}
+Button {
+    background-color: transparent;
+    border-color: transparent;
+    border-width: 1;
+    color: white;
+    width: 60;
+    height: 60;
+    font-size: 38;
+}
+Button.btn-action {
+    font-size: 22;
+}
+/*Button.btn-action:highlighted,*/
+Button.highlighted {
+    color: #0CB6FF;
+}
+.mdi {
+    font-family: "Material Icons", "MaterialIcons-Regular";
+}
+.credit {
+    color: green;
+}
+.debit {
+    color: red;
+}
+.placement {
+    color: orange;
+}
+.disabled {
+    color: gray;
+}
+.text-color {
+    color: white;
+}
+.logo-bg {
+    background-image: url("res://logobg");
+    background-position: right bottom;
+    background-repeat: no-repeat;
+}
+.fab-button {
+    height: 56;
+    width: 56; /* this is required on iOS - Android does not require width so you might need to adjust styles */
+    margin: 10;
+    background-color: #0CB6FF;
+    horizontal-align: right;
+    vertical-align: bottom;
+}
+.container {
+    padding: 20;
+}
+.form-field {
+    margin-bottom: 16;
+}
+.modal-view-style {
+    padding: 20;
+}
+.modal-view-style .title {
+    color: black;
+    font-size: 18;
+    font-weight: 500;
+    text-align: center;
+}
+.modal-view-style .message {
+    color: gray;
+    font-size: 15;
+    text-align: center;
+    margin-top: 24px;
+}
+.modal-view-style .inner {
+    margin-top: 56;
+}
+.modal-view-style .btn {
+    width: 72;
+    height: 72;
+    font-size: 48;
+}
+.modal-view-style .btn-submit {
+    background-color: green;
+    color: white;
+    border-radius: 24px;
+}
+.modal-view-style .btn-cancel {
+    background-color: firebrick;
+    color: white;
+    border-radius: 24px;
+}
+.static-list .item {
+    border-width: 0 0 1 0;
+    border-color: transparent transparent #002A5B transparent;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+}
+.static-list .item-title {
+    font-weight: bold;
+    color: white;
+}
+.static-list .item-caption {
+    font-size: 15px;
+    color: #ddd;
+}

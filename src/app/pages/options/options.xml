@@ -1,0 +1,31 @@
+<Page class="container">
+  <ActionBar [title]="'Page.Options.Title' | translate">
+    <ActionItem (tap)="update()" android.systemIcon="ic_menu_save" ios.systemIcon="3" ios.position="right"></ActionItem>
+    <ActionItem (tap)="cancel()" android.systemIcon="ic_menu_close_clear_cancel" ios.systemIcon="1" ios.position="right"></ActionItem>
+  </ActionBar>
+  <GridLayout rows="*, auto">
+    <ScrollView row="0" scrollBarIndicatorVisible="false">
+      <StackLayout class="form">
+        <!-- ExportData - Email -->
+        <StackLayout class="form-field">
+          <Label [text]="'Page.Options.ExportData.Title' | translate" class="title"></Label>
+          <Label [text]="'Page.Options.ExportData.EmailNote' | translate" textWrap="true" class="note"></Label>
+          <TextField [hint]="'Page.Options.ExportData.EmailHint' | translate" keyboardType="email" autocorrect="false" [(ngModel)]="options.email" style.placeholderColor="gray"></TextField>
+        </StackLayout>
+        <!-- CashLimit -->
+        <StackLayout class="form-field">
+          <Label [text]="'Page.Options.CashLimit.Title' | translate" class="title"></Label>
+          <Label [text]="'Page.Options.CashLimit.Note' | translate" textWrap="true" class="note"></Label>
+          <TextField [hint]="'Page.Options.CashLimit.Hint' | translate" keyboardType="number" [(ngModel)]="options.cashLimit" style.placeholderColor="gray"></TextField>
+        </StackLayout>
+        <!-- Language -->
+        <StackLayout class="form-field">
+          <Label [text]="'Page.Options.Language.Section' | translate" class="title"></Label>
+          <ListPicker [items]="languages" [(ngModel)]="selectedLanguageIndex" (selectedIndexChange)="onLanguageIndexChanged($event)" class="text-color"></ListPicker>
+        </StackLayout>
+      </StackLayout>
+    </ScrollView>
+    <!-- NeedRestart -->
+    <Label row="1" [text]="'Page.Options.NeedRestart' | translate" [visibility]="needRestart ? 'visible' : 'collapse'" textWrap="true" class="need-restart text-center"></Label>
+  </GridLayout>
+</Page>

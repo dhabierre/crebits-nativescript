@@ -1,0 +1,10 @@
+.title {
+    color: green;
+}
+.note {
+    font-size: 14px;
+}
+.need-restart {
+    color: firebrick;
+    font-size: 15px;
+}

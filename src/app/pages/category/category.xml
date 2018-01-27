@@ -1,0 +1,13 @@
+<Page class="container">
+  <ActionBar [title]="'Page.Category.Title' | translate">
+    <ActionItem (tap)="persist()" android.systemIcon="ic_menu_save" ios.systemIcon="3" ios.position="right"></ActionItem>
+    <ActionItem (tap)="cancel()" android.systemIcon="ic_menu_close_clear_cancel" ios.systemIcon="1" ios.position="right"></ActionItem>
+  </ActionBar>
+  <ScrollView scrollBarIndicatorVisible="false">
+    <StackLayout orientation="vertical" class="form">
+      <StackLayout class="form-field">
+        <TextField #caption [hint]="'Common.Caption' | translate" autocorrect="true" [(ngModel)]="category.caption" maxLength="24" style.placeholderColor="gray"></TextField>
+      </StackLayout>
+    </StackLayout>
+  </ScrollView>
+</Page>

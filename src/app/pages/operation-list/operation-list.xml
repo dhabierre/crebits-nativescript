@@ -1,0 +1,121 @@
+<Page
+    xmlns="http://schemas.nativescript.org/tns.xsd"
+    xmlns:actionbaritems="components/actionbaritems"
+    xmlns:fab="nativescript-floatingactionbutton">
+    <ActionBar [title]="'Page.Operations.Title' | translate">
+        <ActionItem [text]="'ActionBar.Purge' | translate" (tap)="purge()" android.position="popup"></ActionItem>
+        <ActionItem [text]="'ActionBar.Export' | translate" (tap)="export()" android.position="popup"></ActionItem>
+        <ActionItem [text]="'ActionBar.Categories' | translate" (tap)="navigateToCategories()" android.position="popup"></ActionItem>
+        <ActionItem [text]="'Page.Options.Title' | translate" (tap)="navigateToOptions()" android.position="popup"></ActionItem>
+        <ActionItem [text]="'Page.About.Title' | translate" (tap)="navigateToAbout()" android.position="popup"></ActionItem>
+    </ActionBar>
+    <GridLayout rows="*, 60">
+        <TabView row="0" tabTextColor="gray" selectedTabTextColor="black" androidSelectedTabHighlightColor="green">
+            <!-- Debits -->
+            <GridLayout *tabItem="{title: 'Common.Debits' | translate}" class="container">
+                <Label [text]="'Common.NoOperation' | translate" [visibility]="debits.length === 0 ? 'visible' : 'collapse'"></Label>
+                <ScrollView [visibility]="debits.length > 0 ? 'visible' : 'collapse'" scrollBarIndicatorVisible="false">
+                    <ListView [items]="debits" separatorColor="transparent">
+                        <ng-template let-item="item">
+                            <GridLayout columns="*, auto" rows="auto, auto">
+                                <Label row="0" col="0" [text]="item.caption" style="margin: 0"></Label>
+                                <!-- OverridedValue -->
+                                <!-- Recurrent -->
+                                <Label row="1" col="0" visibility="{{ item.overridedValue > 0 && item.isRecurrent ? 'visible' : 'collapse' }}">
+                                    <FormattedString>
+                                        <Span [text]="item.overridedValue | currencyWithoutSymbol" class="{{item.cssClass}} value"></Span>
+                                        <Span text=" "></Span>
+                                        <Span [text]="'mdi-autorenew' | fonticon" class="mdi"></Span>
+                                        <Span [text]="'mdi-priority-high' | fonticon" class="mdi"></Span>
+                                    </FormattedString>
+                                </Label>
+                                <!-- Not Recurrent -->
+                                <Label row="1" col="0" visibility="{{ item.overridedValue > 0 && !item.isRecurrent ? 'visible' : 'collapse' }}">
+                                    <FormattedString>
+                                        <Span [text]="item.overridedValue | currencyWithoutSymbol" class="{{item.cssClass}} value"></Span>
+                                        <Span text=" "></Span>
+                                        <Span [text]="'mdi-priority-high' | fonticon" class="mdi"></Span>
+                                    </FormattedString>
+                                </Label>
+                                <!-- Value -->
+                                <!-- Recurrent -->
+                                <Label row="1" col="0" visibility="{{ item.overridedValue === 0 && item.isRecurrent ? 'visible' : 'collapse' }}">
+                                    <FormattedString>
+                                        <Span [text]="item.value | currencyWithoutSymbol" class="{{item.cssClass}} value"></Span>
+                                        <Span text=" "></Span>
+                                        <Span [text]="'mdi-autorenew' | fonticon" isCollapsed="{{ !item.isRecurrent }}" class="mdi"></Span>
+                                    </FormattedString>
+                                </Label>
+                                <!-- Not Recurrent -->
+                                <Label row="1" col="0" visibility="{{ item.overridedValue === 0 && !item.isRecurrent ? 'visible' : 'collapse' }}">
+                                    <FormattedString>
+                                        <Span [text]="item.value | currencyWithoutSymbol" class="{{item.cssClass}} value"></Span>
+                                    </FormattedString>
+                                </Label>
+                                <!-- Buttons -->
+                                <StackLayout row="1" col="1" orientation="horizontal">
+                                    <Button [text]="'mdi-edit' | fonticon" (tap)="edit(item)" class="mdi btn-action"></Button>
+                                    <Button [text]="'mdi-delete' | fonticon" (tap)="delete(item)" class="mdi btn-action"></Button>
+                                </StackLayout>
+                            </GridLayout>
+                        </ng-template>
+                    </ListView>
+                </ScrollView>
+            </GridLayout>
+            <!-- Credits -->
+            <GridLayout *tabItem="{title: 'Common.Credits' | translate}" class="container">
+                <Label [text]="'Common.NoOperation' | translate" [visibility]="credits.length === 0 ? 'visible' : 'collapse'"></Label>
+                <ScrollView [visibility]="credits.length > 0 ? 'visible' : 'collapse'" scrollBarIndicatorVisible="false">
+                    <ListView [items]="credits" separatorColor="transparent">
+                        <ng-template let-item="item">
+                            <GridLayout columns="*, auto" rows="auto, auto">
+                                <Label row="0" col="0" [text]="item.caption"></Label>
+                                <!-- OverridedValue -->
+                                <!-- Recurrent -->
+                                <Label row="1" col="0" visibility="{{ item.overridedValue > 0 && item.isRecurrent ? 'visible' : 'collapse' }}">
+                                    <FormattedString>
+                                        <Span [text]="item.overridedValue | currencyWithoutSymbol" class="{{item.cssClass}} value"></Span>
+                                        <Span text=" "></Span>
+                                        <Span [text]="'mdi-autorenew' | fonticon" class="mdi"></Span>
+                                        <Span [text]="'mdi-priority-high' | fonticon" class="mdi"></Span>
+                                    </FormattedString>
+                                </Label>
+                                <!-- Not Recurrent -->
+                                <Label row="1" col="0" visibility="{{ item.overridedValue > 0 && !item.isRecurrent ? 'visible' : 'collapse' }}">
+                                    <FormattedString>
+                                        <Span [text]="item.overridedValue | currencyWithoutSymbol" class="{{item.cssClass}} value"></Span>
+                                        <Span text=" "></Span>
+                                        <Span [text]="'mdi-priority-high' | fonticon" class="mdi"></Span>
+                                    </FormattedString>
+                                </Label>
+                                <!-- Value -->
+                                <!-- Recurrent -->
+                                <Label row="1" col="0" visibility="{{ item.overridedValue === 0 && item.isRecurrent ? 'visible' : 'collapse' }}">
+                                    <FormattedString>
+                                        <Span [text]="item.value | currencyWithoutSymbol" class="{{item.cssClass}} value"></Span>
+                                        <Span text=" "></Span>
+                                        <Span [text]="'mdi-autorenew' | fonticon" isCollapsed="{{ !item.isRecurrent }}" class="mdi"></Span>
+                                    </FormattedString>
+                                </Label>
+                                <!-- Not Recurrent -->
+                                <Label row="1" col="0" visibility="{{ item.overridedValue === 0 && !item.isRecurrent ? 'visible' : 'collapse' }}">
+                                    <FormattedString>
+                                        <Span [text]="item.value | currencyWithoutSymbol" class="{{item.cssClass}} value"></Span>
+                                    </FormattedString>
+                                </Label>
+                                <!-- Buttons -->
+                                <StackLayout row="1" col="1" orientation="horizontal">
+                                    <Button [text]="'mdi-edit' | fonticon" (tap)="edit(item)" class="mdi btn-action"></Button>
+                                    <Button [text]="'mdi-delete' | fonticon" (tap)="delete(item)" class="mdi btn-action"></Button>
+                                </StackLayout>
+                            </GridLayout>
+                        </ng-template>
+                    </ListView>
+                </ScrollView>
+            </GridLayout>
+        </TabView>
+        <!-- Buttons -->
+        <Button row="1" [text]="'mdi-keyboard-backspace' | fonticon" (tap)="back()" class="mdi"></Button>
+        <fab:fab row="1" (tap)="navigateToCreateOperation()" icon="res://ic_add_white_24dp" rippleColor="#f1f1f1" class="fab-button" />
+    </GridLayout>
+</Page>
