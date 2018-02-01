@@ -9,16 +9,16 @@ This application does not require any connection. Data is stored locally on the 
 
 Please, report any bug in order to make the application better.
 
-# Requirements
+## Requirements
 
 All dependencies are described in the `package.json` file
 
 - Nativescript 3.3.1
 - Android emulator (Android Studio)
 
-# Debug
+## Debug
 
-## Clean workspace
+### Clean workspace
 
 ```
 cd src
@@ -28,16 +28,16 @@ npm install
 tns platform add android
 ```
 
-## Build & Run
+### Build & Run
 
 ```
 cd src
 tns run android
 ```
 
-# Release
+## Release
 
-## Clean workspace
+### Clean workspace
 
 ```
 cd src
@@ -47,7 +47,7 @@ npm install
 tns platform add android
 ```
 
-## Build & Run
+### Build & Run
 
 Use one of the following commands
 
@@ -56,16 +56,16 @@ cd src
 npm run start-android-bundle
 ```
 
-## Build Release APK
+### Build Release APK
 
 ```
 cd src
 npm run build-android-bundle --uglify --snapshot -- --release --key-store-path F:\Dev\GITHUB\crebits-nativescript\src\crebits.jks --key-store-password <PASSWORD> --key-store-alias Crebits --key-store-alias-password <PASSWORD>
 ```
 
-# Tips
+## Tips
 
-## Install TNS 3.3.1
+### Install TNS 3.3.1
 
 ```
 cd src
@@ -75,13 +75,13 @@ tns platform add android
 npm install tns-core-modules@3.3.0 --save
 ```
 
-## Android SDK > Accept licenses
+### Android SDK > Accept licenses
 
 ```
 C:\Android\sdk\tools\bin\sdkmanager --licenses
 ```
 
-## Cannot resolve ./vendor
+### Cannot resolve ./vendor
 
 ```
 cd src
