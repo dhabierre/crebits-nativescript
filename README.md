@@ -1,6 +1,6 @@
 # Crebits Nativescript
 
-[Google Play app details](https://play.google.com/store/apps/details?id=com.ananapps.crebits&hl=en)
+App screenshots @ [Google Play App Details](https://play.google.com/store/apps/details?id=com.ananapps.crebits&hl=en)
 
 Crebits is a Personal Finance app for Android.\
 It has been designed to really simplify our daily lives by anticipating monthly expenses.\
@@ -49,8 +49,6 @@ tns platform add android
 
 ### Build & Run
 
-Use one of the following commands
-
 ```
 cd src
 npm run start-android-bundle
@@ -81,7 +79,7 @@ npm install tns-core-modules@3.3.0 --save
 C:\Android\sdk\tools\bin\sdkmanager --licenses
 ```
 
-### Cannot resolve ./vendor
+### Error "Cannot resolve ./vendor"
 
 ```
 cd src
