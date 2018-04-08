@@ -59,6 +59,7 @@ export class TranslationService implements ITranslationService {
             "Common.Debits",
             "Common.Deleted",
             "Common.Disabled",
+            "Common.Enabled",
             "Common.No",
             "Common.NoCategory",
             "Common.NoData",

@@ -61,6 +61,8 @@ cd src
 npm run build-android-bundle --uglify --snapshot -- --release --key-store-path F:\Dev\GITHUB\crebits-nativescript\src\crebits.jks --key-store-password <PASSWORD> --key-store-alias Crebits --key-store-alias-password <PASSWORD>
 ```
 
+APK in **F:\Dev\GITHUB\crebits-nativescript\src\platforms\android\build\outputs\apk**
+
 ## Tips
 
 ### Install TNS 3.3.1

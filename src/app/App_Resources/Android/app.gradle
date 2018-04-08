@@ -11,8 +11,8 @@ android {
     applicationId = "com.ananapps.crebits"  
     minSdkVersion 17
     targetSdkVersion 25
-    versionCode 8
-    versionName "1.1.1"
+    versionCode 10
+    versionName "1.1.2"
   }  
   aaptOptions {  
     additionalParameters "--no-version-vectors"  
