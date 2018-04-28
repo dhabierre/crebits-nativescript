@@ -3,8 +3,8 @@
     xmlns:actionbaritems="components/actionbaritems"
     xmlns:fab="nativescript-floatingactionbutton">
     <ActionBar [title]="'Page.Operations.Title' | translate">
-        <ActionItem [text]="'ActionBar.Purge' | translate" (tap)="purge()" android.position="popup"></ActionItem>
         <ActionItem [text]="'ActionBar.Export' | translate" (tap)="export()" android.position="popup"></ActionItem>
+        <ActionItem [text]="'ActionBar.Purge' | translate" (tap)="purge()" android.position="popup"></ActionItem>
         <ActionItem [text]="'ActionBar.Categories' | translate" (tap)="navigateToCategories()" android.position="popup"></ActionItem>
         <ActionItem [text]="'Page.Options.Title' | translate" (tap)="navigateToOptions()" android.position="popup"></ActionItem>
         <ActionItem [text]="'Page.About.Title' | translate" (tap)="navigateToAbout()" android.position="popup"></ActionItem>
