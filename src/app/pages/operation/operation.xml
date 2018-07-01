@@ -24,9 +24,9 @@
       <!-- Disabled Switch -->
       <StackLayout class="form-field">
         <GridLayout columns="*, auto">
-          <Label col="0" [text]="'Common.Enabled' | translate" [visibility]="operation.isDisabled ? 'collapse' : 'visible'"></Label>
-          <Label col="0" [text]="'Common.Disabled' | translate" [visibility]="operation.isDisabled ? 'visible' : 'collapse'" class="disabled"></Label>
-          <Switch col="1" [checked]="operation.isDisabled" (checkedChange)="onIsDisabledChange($event)"></Switch>
+          <Label col="0" [text]="'Common.Enabled' | translate" [visibility]="operationIsEnabled ? 'visible' : 'collapse'"></Label>
+          <Label col="0" [text]="'Common.Disabled' | translate" [visibility]="operationIsEnabled ? 'collapse' : 'visible'" class="disabled"></Label>
+          <Switch col="1" [checked]="operationIsEnabled" (checkedChange)="onIsDisabledChange($event)"></Switch>
         </GridLayout>
       </StackLayout>
       <!-- Caption -->

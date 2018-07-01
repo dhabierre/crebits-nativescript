@@ -28,6 +28,7 @@ export class OperationComponent implements OnInit, OnDestroy {
     public categories: Array<Category>;
     public currentMonth: string;
     public operation: Operation = new Operation();
+    public operationIsEnabled: boolean;
     public selectedCategory: Category;
     private paramSubcription: any;
 
@@ -42,6 +43,7 @@ export class OperationComponent implements OnInit, OnDestroy {
         private viewContainerRef: ViewContainerRef) {
         this.operation.isDebit = true;
         this.operation.isCredit = false;
+        this.operationIsEnabled = true;
     }
 
     ngOnInit() {
@@ -51,6 +53,7 @@ export class OperationComponent implements OnInit, OnDestroy {
                 let id = params['id'];
                 if (id > 0) {
                     this.operationDataService.get(id, operation => {
+                        this.operationIsEnabled = !operation.isDisabled;
                         this.operation = operation;
                         if (this.operation.overridedValue === 0) {
                             this.operation.overridedValue = null; // UI: to display the hint
@@ -88,6 +91,7 @@ export class OperationComponent implements OnInit, OnDestroy {
     }
 
     private save() {
+        this.operation.isDisabled = !this.operationIsEnabled;
         this.operationDataService.save(this.operation, (isWellSet, isSaved) => {
             if (isWellSet) {
                 if (isSaved) {
@@ -113,6 +117,7 @@ export class OperationComponent implements OnInit, OnDestroy {
     }
 
     private update() {
+        this.operation.isDisabled = !this.operationIsEnabled;
         this.operationDataService.update(this.operation, (isWellSet, isUpdated) => {
             if (isWellSet) {
                 if (isUpdated) {
@@ -158,7 +163,7 @@ export class OperationComponent implements OnInit, OnDestroy {
     public onIsDisabledChange(args: any) {
         if (args !== null && args.value !== null) {
             let checked: boolean = args.value;
-            this.operation.isDisabled = checked;
+            this.operationIsEnabled = checked;
         }
     }
 

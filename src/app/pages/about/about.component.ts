@@ -33,7 +33,7 @@ export class AboutComponent implements OnInit {
   }
   
   public openPaypal() {
-    UtilityModule.openUrl("https://www.paypal.me/ananapps");
+    UtilityModule.openUrl("https://www.paypal.me/dhabierre");
   }
 
   public openFeedback() {
