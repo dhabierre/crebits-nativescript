@@ -10,8 +10,8 @@ android {
     generatedDensities = []
     applicationId = "com.ananapps.crebits"  
     minSdkVersion 17
-    targetSdkVersion 25
-    versionCode 11
+    targetSdkVersion 26
+    versionCode 12
     versionName "1.1.3"
   }  
   aaptOptions {  
